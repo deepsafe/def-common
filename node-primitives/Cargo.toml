@@ -1,0 +1,36 @@
+[package]
+name = "def-node-primitives"
+authors = ["DeepSafe"]
+edition = "2021"
+version = "0.1.0"
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+sp-core = { git = "https://github.com/deepsafe/polkadot-sdk", branch = "deepsafe", default-features = false }
+sp-runtime = { git = "https://github.com/deepsafe/polkadot-sdk", branch = "deepsafe", default-features = false }
+sp-io = { git = "https://github.com/deepsafe/polkadot-sdk", branch = "deepsafe", default-features = false, features = ['disable_oom', 'disable_panic_handler'] }
+serde = { version = "1.0.195", default-features = false, features = ["alloc", "derive"], optional = true }
+fp-account = { git = "https://github.com/deepsafe/frontier.git", branch = "deepsafe",  default-features = false, features = ["serde"] }
+
+# crypto
+sha2 = { version = "0.9", default-features = false, optional = true }
+sha3 = { version = "0.9", default-features = false, optional = true }
+hex = { version = "0.4", default-features = false, optional = true }
+bls-signatures = { version = "0.13.1", optional = true }
+libsecp256k1 = { version = "0.3.2", default-features = false, features = ["hmac"], optional = true }
+
+def-chain-bridge = { path = "../chain-bridge" }
+
+[features]
+default = ["std", "crypto"]
+std = [
+    "sp-core/std",
+    "sp-runtime/std",
+    "sp-io/std",
+    "fp-account/std",
+    "serde",
+]
+
+crypto = ["sha2", "sha3", "hex", "bls-signatures", "libsecp256k1"]
