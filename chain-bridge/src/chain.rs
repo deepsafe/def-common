@@ -54,6 +54,7 @@ pub const BEVM2_MAINNET: u32 = 11501;
 pub const SLINKY_MAINNET: u32 = 88335;
 pub const BOOL_EVM_BETA_MAINNET: u32 = 11100;
 pub const ULTRA_LIQUID_MAINNET: u32 = 11101;
+pub const DEEPSAFE_BETA_MAINNET: u32 = 10011;
 
 // Testnet
 pub const ETHEREUM_GOERLI: u32 = 5;
@@ -176,7 +177,7 @@ pub const CKB_TESTNET: u32 = 0xe43cbf03;
 // "Fractal-Testnet"
 pub const FRACTAL_TESTNET: u32 = 0xd315bbb0;
 
-pub const CHAIN_IDS: [u32; 112] = [
+pub const CHAIN_IDS: [u32; 113] = [
     ETHEREUM_MAINNET,
     OPTIMISM_MAINNET,
     POLYGON_MAINNET,
@@ -226,6 +227,7 @@ pub const CHAIN_IDS: [u32; 112] = [
     BEVM_MAINNET,
     BEVM2_MAINNET,
     ULTRA_LIQUID_MAINNET,
+    DEEPSAFE_BETA_MAINNET,
     BEVM_TESTNET,
     FILECOIN_EVM_CALIBRATION,
     BIFROST_POLKADOT,
@@ -380,6 +382,7 @@ impl ChainType {
             | SLINKY_MAINNET | SLINKY_TESTNET
             | DUCK_TESTNET
             | BOOL_EVM_BETA_MAINNET
+            | DEEPSAFE_BETA_MAINNET
             | ULTRA_LIQUID_MAINNET | ULTRA_LIQUID_TESTNET => Self::Eth,
             BITCOIN_MAINNET | BITCOIN_TESTNET | DOGECOIN_MAINNET | DOGECOIN_TESTNET => Self::Btc,
             SOLANA_MAINNET | SOLANA_TESTNET | SOLANA_DEVNET => Self::Solana,
